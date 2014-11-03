@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -31,7 +36,7 @@ Next we make a histogram of the steps taken per day.  The number of breaks is se
 hist(daySteps,breaks = 10,xlab="Steps per Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 Now we calculate the mean and median steps taken per day:
 
@@ -69,7 +74,7 @@ interval <- names(avgSteps)
 plot(interval,avgSteps,type="l")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 To find which interval contains the maximum number of steps on average, we combine the which function and max function:
 
@@ -111,10 +116,6 @@ library(dplyr)
 ## 
 ## Attaching package: 'dplyr'
 ## 
-## The following object is masked _by_ '.GlobalEnv':
-## 
-##     count
-## 
 ## The following object is masked from 'package:stats':
 ## 
 ##     filter
@@ -150,7 +151,7 @@ daySteps2 <- tapply(data2$steps,data$date,sum,na.rm=T)
 hist(daySteps2,breaks = 10,xlab="Steps per Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 
 and the mean and median:
 
@@ -220,5 +221,5 @@ data3 <- data2 %>% group_by(interval,day) %>% summarise(avg = mean(steps))
 xyplot(data3$avg~data3$interval|data3$day,type="l")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
 
